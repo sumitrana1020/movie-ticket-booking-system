@@ -12,14 +12,13 @@ public class Movie{
     public String getTitle(){
         return title;
     }
-    public getLanguage(){
+    public String getLanguage(){
         return language;
     }
-    public getDuration(){
+    public int getDuration(){
         return duration;
     }
-    public getDetails(){
+    public String getDetails(){
         return title + "(" + language + ", " + duration + " min)";
-        
     }
 }

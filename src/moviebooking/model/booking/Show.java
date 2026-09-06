@@ -1,4 +1,5 @@
 package moviebooking.model.booking;
+import moviebooking.model.enums.SeatType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,28 @@ public class Show {
             }
         }
         return null;
+    }
+    public void printSeatLayout() {
+        System.out.println();
+        System.out.println("  SCREEN-" + screen.getScreenNumber() + "  " + startTime + "  |  " + movie.getTitle());
+
+        printSeatRow("SILVER", SeatType.SILVER);
+        printSeatRow("GOLD", SeatType.GOLD);
+        printSeatRow("PLATINUM", SeatType.PLATINUM);
+
+        System.out.println();
+        System.out.println("  ( [ ] = available   [X] = booked )");
+    }
+
+    private void printSeatRow(String label, SeatType type) {
+        StringBuilder row = new StringBuilder("  " + label + "  ");
+        for (ShowSeat ss : showSeats) {
+            if (ss.getSeat().getType() == type) {
+                String mark = ss.isAvailable() ? " " : "X";
+                row.append(ss.getSeat().getNumber()).append("[").append(mark).append("] ");
+            }
+        }
+        System.out.println(row.toString());
     }
 
     public List<ShowSeat> getShowSeats() {
