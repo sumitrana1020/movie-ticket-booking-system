@@ -41,7 +41,7 @@ public class Main {
                     printMyTickets();
                     break;
                 case "0":
-                    System.out.println("Goodbye!");
+                    System.out.println("Enjoy The Show!");
                     sc.close();
                     return;
                 default:
@@ -92,7 +92,7 @@ public class Main {
         Customer customer = new Customer("Sumit", "9999999999");
         Booking booking = bookingService.createBooking(customer, show, selected);
         if (booking == null) {
-            System.out.println("Booking failed — a seat may already be booked.");
+            System.out.println("Sorry, the seat may already be booked.");
             return;
         }
 
@@ -178,6 +178,6 @@ public class Main {
         Movie movie2 = new Movie("Interstellar", "English", 169);
 
         cinema.addShow(new Show("06:00 PM", movie1, screen1));
-        cinema.addShow(new Show("09:00 PM", movie1, screen1));
+        cinema.addShow(new Show("09:00 PM", movie2, screen1));
     }
 }
